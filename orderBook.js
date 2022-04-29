@@ -21,7 +21,7 @@ const reconcileOrder = (existingBook, newOrder) => {
     const currentReq = activeReqs[i]
 
     if (typeMatch(newReq, currentReq) && priceMatch(newReq, currentReq)) {
-      const dealMade = makeDeal(newReq, activeReqs)
+      const dealMade = makeDeal(newReq, currentReq)
 
       if (dealMade.quantity > 0) {
         dealArray.push(dealMade)
@@ -67,7 +67,7 @@ const makeDeal = (newReq, currentReq) => {
 }
 
 const calculateQuantity = (newReq, currentReq) => {
-  Math.min(newReq.quantity, currentReq.quantity)
+  return Math.min(newReq.quantity, currentReq.quantity)
 }
 
 module.exports = reconcileOrder
