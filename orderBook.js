@@ -30,6 +30,14 @@ const reconcileOrder = (existingBook, newOrder) => {
       noDealArray.push(currentReq)
     }
   }
+
+  if (newReq.quantity > 0) {
+    dealArray.push(newReq)
+  }
+
+  let returnArray = [...noDealArray, ...dealArray]
+
+  return returnArray
 }
 const typeMatch = (newReq, currentReq) => {
   if (newReq.type !== currentReq.type) return true
